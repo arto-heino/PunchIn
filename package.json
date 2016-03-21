@@ -1,0 +1,23 @@
+{
+  "name": "punchin",
+  "version": "1.0.0",
+  "description": "Track attendance easily",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/badbull/PunchIn.git"
+  },
+  "author": "Arto, Milos, Carla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/badbull/PunchIn/issues"
+  },
+  "homepage": "https://github.com/badbull/PunchIn#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mysql": "^2.10.2"
+  }
+}
