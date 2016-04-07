@@ -1,25 +1,171 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
-    <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
-    </dependencies>
-    <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-    </scenes>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<dependencies>
+<deployment identifier="iOS"/>
+<plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+<capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+</dependencies>
+<scenes>
+<!--View Controller-->
+<scene sceneID="tne-QT-ifu">
+<objects>
+<viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PunchIn" customModuleProvider="target" sceneMemberID="viewController">
+<layoutGuides>
+<viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+<viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+</layoutGuides>
+<view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+<rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Classroom" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Py-OY-OP5">
+<rect key="frame" x="252" y="152" width="97" height="30"/>
+<constraints>
+<constraint firstAttribute="width" constant="97" id="D7F-Fb-prl"/>
+</constraints>
+<fontDescription key="fontDescription" type="system" pointSize="14"/>
+<textInputTraits key="textInputTraits"/>
+</textField>
+<textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Course / course subject" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bxJ-AK-Ki9">
+<rect key="frame" x="198" y="232" width="205" height="30"/>
+<constraints>
+<constraint firstAttribute="width" constant="205" id="pPQ-Bb-vMs"/>
+</constraints>
+<fontDescription key="fontDescription" type="system" pointSize="14"/>
+<textInputTraits key="textInputTraits"/>
+</textField>
+<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iqi-y4-LcX">
+<rect key="frame" x="247" y="414" width="106" height="30"/>
+<constraints>
+<constraint firstAttribute="width" constant="106" id="9UQ-rL-5gK"/>
+</constraints>
+<state key="normal" title="Punch In!"/>
+<connections>
+<segue destination="9JK-9V-2z5" kind="show" id="QjS-Ow-dUw"/>
+</connections>
+</button>
+<label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5e4-4R-CPl">
+<rect key="frame" x="198" y="5" width="199" height="55"/>
+<constraints>
+<constraint firstAttribute="width" constant="199" id="G2B-Qk-cEi"/>
+<constraint firstAttribute="height" constant="55" id="d82-l8-PQR"/>
+</constraints>
+<fontDescription key="fontDescription" type="system" pointSize="17"/>
+<color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+<nil key="highlightedColor"/>
+</label>
+</subviews>
+<color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+<constraints>
+<constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Iqi-y4-LcX" secondAttribute="bottom" constant="156" id="3dT-Rw-4zq"/>
+<constraint firstItem="5e4-4R-CPl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="5" id="8YH-dJ-dgr"/>
+<constraint firstItem="9Py-OY-OP5" firstAttribute="top" secondItem="5e4-4R-CPl" secondAttribute="bottom" constant="92" id="T7b-PY-owH"/>
+<constraint firstItem="9Py-OY-OP5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WBj-Xx-AoM"/>
+<constraint firstItem="9Py-OY-OP5" firstAttribute="centerX" secondItem="bxJ-AK-Ki9" secondAttribute="centerX" id="c5J-Ey-qxr"/>
+<constraint firstItem="5e4-4R-CPl" firstAttribute="leading" secondItem="bxJ-AK-Ki9" secondAttribute="leading" id="gRq-Cq-sf6"/>
+<constraint firstItem="bxJ-AK-Ki9" firstAttribute="centerX" secondItem="Iqi-y4-LcX" secondAttribute="centerX" id="ogI-k1-y1K"/>
+<constraint firstItem="bxJ-AK-Ki9" firstAttribute="top" secondItem="9Py-OY-OP5" secondAttribute="bottom" constant="50" id="zIB-VT-epf"/>
+</constraints>
+</view>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="-59" y="-141"/>
+</scene>
+<!--View Controller-->
+<scene sceneID="oxb-XC-FJI">
+<objects>
+<viewController id="9JK-9V-2z5" sceneMemberID="viewController">
+<layoutGuides>
+<viewControllerLayoutGuide type="top" id="XJO-QW-2N0"/>
+<viewControllerLayoutGuide type="bottom" id="gUu-2M-8cf"/>
+</layoutGuides>
+<view key="view" contentMode="scaleToFill" id="xQD-FG-nqd">
+<rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTh-ha-KpZ">
+<rect key="frame" x="228" y="471" width="144" height="50"/>
+<constraints>
+<constraint firstAttribute="width" constant="144" id="XKR-8g-IBI"/>
+<constraint firstAttribute="height" constant="50" id="mEy-BS-d25"/>
+</constraints>
+<state key="normal" title="Punch me in!"/>
+<connections>
+<segue destination="rJU-eM-sgs" kind="show" id="MmK-kg-qpE"/>
+</connections>
+</button>
+<textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Lastname" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lo2-VO-ohf">
+<rect key="frame" x="215" y="148" width="170" height="30"/>
+<constraints>
+<constraint firstAttribute="width" constant="170" id="WzT-e4-UIe"/>
+</constraints>
+<fontDescription key="fontDescription" type="system" pointSize="14"/>
+<textInputTraits key="textInputTraits"/>
+</textField>
+<textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Student ID" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IgZ-wD-Nbk">
+<rect key="frame" x="215" y="275" width="170" height="30"/>
+<fontDescription key="fontDescription" type="system" pointSize="14"/>
+<textInputTraits key="textInputTraits"/>
+</textField>
+<label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lastname:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PM-Na-zYA">
+<rect key="frame" x="247" y="103" width="106" height="20"/>
+<constraints>
+<constraint firstAttribute="width" constant="106" id="EaR-XJ-Zkb"/>
+<constraint firstAttribute="height" constant="20" id="PLJ-ah-doG"/>
+</constraints>
+<fontDescription key="fontDescription" type="system" pointSize="17"/>
+<color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+<nil key="highlightedColor"/>
+</label>
+<label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student ID:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpp-Xr-dS0">
+<rect key="frame" x="247" y="226" width="106" height="22"/>
+<constraints>
+<constraint firstAttribute="height" constant="22" id="nba-Cp-2Dl"/>
+</constraints>
+<fontDescription key="fontDescription" type="system" pointSize="17"/>
+<color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+<nil key="highlightedColor"/>
+</label>
+</subviews>
+<color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+<constraints>
+<constraint firstItem="2PM-Na-zYA" firstAttribute="leading" secondItem="Mpp-Xr-dS0" secondAttribute="leading" id="CCG-ip-CL9"/>
+<constraint firstItem="lo2-VO-ohf" firstAttribute="trailing" secondItem="IgZ-wD-Nbk" secondAttribute="trailing" id="M4k-xz-3Yx"/>
+<constraint firstItem="lo2-VO-ohf" firstAttribute="leading" secondItem="IgZ-wD-Nbk" secondAttribute="leading" id="O8S-Vb-7e0"/>
+<constraint firstItem="Mpp-Xr-dS0" firstAttribute="top" secondItem="lo2-VO-ohf" secondAttribute="bottom" constant="48" id="Tzf-y3-BAh"/>
+<constraint firstItem="gUu-2M-8cf" firstAttribute="top" secondItem="FTh-ha-KpZ" secondAttribute="bottom" constant="79" id="U26-3B-dQL"/>
+<constraint firstItem="IgZ-wD-Nbk" firstAttribute="top" secondItem="Mpp-Xr-dS0" secondAttribute="bottom" constant="27" id="W2y-h9-W0C"/>
+<constraint firstItem="2PM-Na-zYA" firstAttribute="trailing" secondItem="Mpp-Xr-dS0" secondAttribute="trailing" id="XMx-Yp-Hnp"/>
+<constraint firstItem="2PM-Na-zYA" firstAttribute="top" secondItem="XJO-QW-2N0" secondAttribute="bottom" constant="83" id="aW7-EP-GQQ"/>
+<constraint firstItem="IgZ-wD-Nbk" firstAttribute="centerX" secondItem="FTh-ha-KpZ" secondAttribute="centerX" id="c4Y-KP-RQi"/>
+<constraint firstItem="2PM-Na-zYA" firstAttribute="centerX" secondItem="xQD-FG-nqd" secondAttribute="centerX" id="fkP-nY-k3O"/>
+<constraint firstItem="lo2-VO-ohf" firstAttribute="top" secondItem="2PM-Na-zYA" secondAttribute="bottom" constant="25" id="sjV-gB-qs6"/>
+<constraint firstItem="2PM-Na-zYA" firstAttribute="centerX" secondItem="lo2-VO-ohf" secondAttribute="centerX" id="xeJ-zz-Fp4"/>
+</constraints>
+</view>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="ekN-Et-P9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="621" y="-141"/>
+</scene>
+<!--View Controller-->
+<scene sceneID="ASe-a3-s0I">
+<objects>
+<viewController id="rJU-eM-sgs" sceneMemberID="viewController">
+<layoutGuides>
+<viewControllerLayoutGuide type="top" id="6qS-ZA-8A6"/>
+<viewControllerLayoutGuide type="bottom" id="pd6-JV-5UL"/>
+</layoutGuides>
+<view key="view" contentMode="scaleToFill" id="yWI-Ke-EYa">
+<rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+</view>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="KU2-fS-3da" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="1277" y="-141"/>
+</scene>
+</scenes>
 </document>
