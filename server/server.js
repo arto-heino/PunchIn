@@ -1,9 +1,17 @@
+/**
+ * Created by Artsi on 13/04/16.
+ */
+require('./db');
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
+var class_room = require('./routes/classrooms');
 
-app.get('/', function (req, res) {
-    res.send("Working as intended.");
-});
+module.exports = app;
+
+app.use(bodyParser());
+
+app.get('/class/:id', class_room.list);
 
 app.listen(8081);
 
