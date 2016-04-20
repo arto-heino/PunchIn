@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		742671431CBCFFCE00527BD5 /* StartInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742671421CBCFFCE00527BD5 /* StartInfoController.swift */; };
+		746C2F171CBE1FE800180E1C /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 746C2F161CBE1FE800180E1C /* EstimoteSDK.framework */; };
 		E72903231CA3DB0F00955738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72903221CA3DB0F00955738 /* AppDelegate.swift */; };
 		E72903251CA3DB0F00955738 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72903241CA3DB0F00955738 /* ViewController.swift */; };
 		E72903281CA3DB0F00955738 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72903261CA3DB0F00955738 /* Main.storyboard */; };
@@ -26,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		742671421CBCFFCE00527BD5 /* StartInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartInfoController.swift; path = punchinTests/StartInfoController.swift; sourceTree = SOURCE_ROOT; };
+		742671441CBE1ACB00527BD5 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
+		746C2F161CBE1FE800180E1C /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EstimoteSDK.framework; sourceTree = "<group>"; };
 		E729031F1CA3DB0F00955738 /* punchin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = punchin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72903221CA3DB0F00955738 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E72903241CA3DB0F00955738 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				746C2F171CBE1FE800180E1C /* EstimoteSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +65,7 @@
 		E72903161CA3DB0F00955738 = {
 			isa = PBXGroup;
 			children = (
+				746C2F161CBE1FE800180E1C /* EstimoteSDK.framework */,
 				E72903211CA3DB0F00955738 /* punchin */,
 				E72903361CA3DB0F00955738 /* punchinTests */,
 				E72903201CA3DB0F00955738 /* Products */,
@@ -80,9 +87,11 @@
 				E72903221CA3DB0F00955738 /* AppDelegate.swift */,
 				E72903241CA3DB0F00955738 /* ViewController.swift */,
 				E72903261CA3DB0F00955738 /* Main.storyboard */,
+				742671421CBCFFCE00527BD5 /* StartInfoController.swift */,
 				E72903291CA3DB0F00955738 /* Assets.xcassets */,
 				E729032B1CA3DB0F00955738 /* LaunchScreen.storyboard */,
 				E729032E1CA3DB0F00955738 /* Info.plist */,
+				742671441CBE1ACB00527BD5 /* ObjCBridge.h */,
 			);
 			path = punchin;
 			sourceTree = "<group>";
@@ -146,6 +155,7 @@
 				TargetAttributes = {
 					E729031E1CA3DB0F00955738 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = B8D9N5HJ58;
 					};
 					E72903321CA3DB0F00955738 = {
 						CreatedOnToolsVersion = 7.3;
@@ -206,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				742671431CBCFFCE00527BD5 /* StartInfoController.swift in Sources */,
 				E72903381CA3DB0F00955738 /* punchinTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,10 +340,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = punchin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = metropolia.fi.punchin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";
 			};
 			name = Debug;
 		};
@@ -340,10 +359,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = punchin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = metropolia.fi.punchin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";
 			};
 			name = Release;
 		};
@@ -351,6 +378,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/punchin",
+				);
 				INFOPLIST_FILE = punchinTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = metropolia.fi.punchinTests;
@@ -363,6 +394,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/punchin",
+				);
 				INFOPLIST_FILE = punchinTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = metropolia.fi.punchinTests;
@@ -390,6 +425,7 @@
 				E729033E1CA3DB0F00955738 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E729033F1CA3DB0F00955738 /* Build configuration list for PBXNativeTarget "punchinTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +434,7 @@
 				E72903411CA3DB0F00955738 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
