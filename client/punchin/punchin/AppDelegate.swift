@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         self.beaconManager.requestAlwaysAuthorization()
         self.beaconManager.startMonitoringForRegion(CLBeaconRegion(
             proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!,
-            major: 123, minor: 123, identifier: "monitored region"))
+            major: 1319, minor: 50423, identifier: "monitored region"))
         return true
     }
     

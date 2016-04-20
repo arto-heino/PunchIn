@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		742671431CBCFFCE00527BD5 /* StartInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742671421CBCFFCE00527BD5 /* StartInfoController.swift */; };
+		742671431CBCFFCE00527BD5 /* StartInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742671421CBCFFCE00527BD5 /* StartInfo.swift */; };
+		744358FF1CC7A03000BFEE7F /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744358FE1CC7A03000BFEE7F /* DataParser.swift */; };
 		746C2F171CBE1FE800180E1C /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 746C2F161CBE1FE800180E1C /* EstimoteSDK.framework */; };
 		E72903231CA3DB0F00955738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72903221CA3DB0F00955738 /* AppDelegate.swift */; };
 		E72903251CA3DB0F00955738 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72903241CA3DB0F00955738 /* ViewController.swift */; };
@@ -28,8 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		742671421CBCFFCE00527BD5 /* StartInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartInfoController.swift; path = punchinTests/StartInfoController.swift; sourceTree = SOURCE_ROOT; };
+		742671421CBCFFCE00527BD5 /* StartInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartInfo.swift; path = punchinTests/StartInfo.swift; sourceTree = SOURCE_ROOT; };
 		742671441CBE1ACB00527BD5 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
+		744358FE1CC7A03000BFEE7F /* DataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 		746C2F161CBE1FE800180E1C /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EstimoteSDK.framework; sourceTree = "<group>"; };
 		E729031F1CA3DB0F00955738 /* punchin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = punchin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72903221CA3DB0F00955738 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,8 +88,9 @@
 			children = (
 				E72903221CA3DB0F00955738 /* AppDelegate.swift */,
 				E72903241CA3DB0F00955738 /* ViewController.swift */,
+				744358FE1CC7A03000BFEE7F /* DataParser.swift */,
 				E72903261CA3DB0F00955738 /* Main.storyboard */,
-				742671421CBCFFCE00527BD5 /* StartInfoController.swift */,
+				742671421CBCFFCE00527BD5 /* StartInfo.swift */,
 				E72903291CA3DB0F00955738 /* Assets.xcassets */,
 				E729032B1CA3DB0F00955738 /* LaunchScreen.storyboard */,
 				E729032E1CA3DB0F00955738 /* Info.plist */,
@@ -209,6 +212,7 @@
 			files = (
 				E72903251CA3DB0F00955738 /* ViewController.swift in Sources */,
 				E72903231CA3DB0F00955738 /* AppDelegate.swift in Sources */,
+				744358FF1CC7A03000BFEE7F /* DataParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				742671431CBCFFCE00527BD5 /* StartInfoController.swift in Sources */,
+				742671431CBCFFCE00527BD5 /* StartInfo.swift in Sources */,
 				E72903381CA3DB0F00955738 /* punchinTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  StartInfoController.swift
+//  StartInfo.swift
 //  punchin
 //
 //  Created by Carla Miettinen on 12/04/16.
@@ -9,7 +9,7 @@
 import Foundation
 
 
-class StartInfoController: UIViewController {
+class StartInfo: UIViewController {
     
     
     

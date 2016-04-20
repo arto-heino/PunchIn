@@ -11,8 +11,14 @@ import UIKit
 
 class ViewController: UIViewController, ESTBeaconManagerDelegate {
     
+    @IBAction func cancel(sender: UIBarButtonItem) {
+            dismissViewControllerAnimated(true, completion: nil)
+    }
+
     
-    
+    @IBAction func cancelFromCourseView(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     @IBOutlet weak var rSSi: UILabel!
     
     @IBOutlet weak var proximity: UILabel!
@@ -26,6 +32,12 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate {
     @IBOutlet weak var classroom: UILabel!
     
     
+    @IBAction func searchBeacons(sender: AnyObject) {
+        self.beaconManager.startRangingBeaconsInRegion(self.beaconRegion)
+        classroom?.text = "No beacons nearby, can't punch in!"
+        courseLabel?.text = "No course available!"
+        
+    }
     
     @IBOutlet weak var courseLabel: UILabel!
     
@@ -59,19 +71,17 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate {
         self.beaconManager.stopRangingBeaconsInRegion(self.beaconRegion)
     }
     
-    
-    
-    
     // Add the property holding the data.
     // TODO: replace "<major>:<minor>" strings to match your own beacons
+    
+    
     let placesByBeacons = [
         "1319:50423": [
-            "Heavenly Sandwiches": 50, // read as: it's 50 meters from
-            // "Heavenly Sandwiches" to the beacon with
-            // major 6574 and minor 54631
-            "Green & Green Salads": 150,
-            "Mini Panini": 325
+            "Aquarium": 50, // read as: it's 50 meters from
         ]
+       /* "major:minor": [
+            "Reef":
+         */
     ]
     
     
@@ -87,16 +97,20 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate {
     func beaconManager(manager: AnyObject, didRangeBeacons beacons: [CLBeacon],
                        inRegion region: CLBeaconRegion) {
         if let nearestBeacon = beacons.first {
-            let places = placesNearBeacon(nearestBeacon)
-            // TODO: update the UI here
-            print(places) // TODO: remove after implementing the UI
+            let places: [String] = placesNearBeacon(nearestBeacon)
+
+            
             info?.text = String(nearestBeacon)
             accuracy?.text = String(nearestBeacon.accuracy)
             rSSi?.text = String(nearestBeacon.rssi)
             proximity?.text = String(nearestBeacon.proximityUUID)
-            classroom?.text = String(nearestBeacon.minor + nearestBeacon.major)
+            courseLabel?.text = "\(nearestBeacon.minor) + \(nearestBeacon.major)"
+            classroom?.text = "\(places)"
+            
         }
     }
+    
+    
     
 }
 
