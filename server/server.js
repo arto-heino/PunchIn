@@ -1,7 +1,6 @@
 /**
  * Created by Artsi on 13/04/16.
  */
-require('./db');
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();

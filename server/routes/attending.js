@@ -1,15 +1,12 @@
 /**
  * Created by Artsi on 13/04/16.
  */
-var db = require('./../db');
+var models = require('.././models');
+var Lessons = models.Lessons;
 
-exports.add = function (req, res) {
-    var a_name = req.body.a_name;
-    var a_id = req.body.p_id;
-    var p_desc = req.body.p_desc;
-
-    p1.save(function (err) {
-        if (err) return console.error(err);
+exports.addAttend = function(req, res){
+    var major = req.params.id;
+    Main.findOne({ where: {beacon_id: major} }).then(function(classroom) {
+        res.send(classroom);
     });
-    res.send("Added.");
 };

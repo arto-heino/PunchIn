@@ -8,19 +8,22 @@ var sequelize = new Sequelize('mysql://punchin:siika112@82.196.15.60/punchin');
 
 // load models
 var models = [
-    'main'
+    'Main',
+    'Lessons',
+    'Students'
 ];
 models.forEach(function(model) {
     module.exports[model] = sequelize.import(__dirname + '/' + model);
 });
 
 // describe relationships
-/*(function(m) {
-    m.PhoneNumber.belongsTo(m.User);
-    m.Task.belongsTo(m.User);
-    m.User.hasMany(m.Task);
-    m.User.hasMany(m.PhoneNumber);
-})(module.exports);*/
+(function(m) {
+    m.Lessons.belongsTo(m.Main, {foreignKey: 'class_id'});
+    m.Main.hasMany(m.Lessons, {foreignKey: 'class_id'});
+    m.Lessons.belongsToMany(m.Students, {through: 'attendants', foreignKey: 'lessons_id'});
+    m.Students.belongsToMany(m.Lessons, {through: 'attendants', foreignKey: 'student_id'});
+
+})(module.exports);
 
 // export connection
 module.exports.sequelize = sequelize;
