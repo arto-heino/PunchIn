@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate{
     
     
     var window: UIWindow?
@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         // add this below:
         self.beaconManager.requestAlwaysAuthorization()
         self.beaconManager.startMonitoringForRegion(CLBeaconRegion(
-            proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!,
+            proximityUUID: NSUUID(UUIDString: "DBB26A86-A7FD-45F7-AEEA-3A1BFAC8D6D9")!,
             major: 1319, minor: 50423, identifier: "monitored region"))
         return true
     }
@@ -33,10 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
     func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion) {
         let notification = UILocalNotification()
         notification.alertBody =
-            "Your gate closes in 47 minutes. " +
-            "Current security wait time is 15 minutes, " +
-            "and it's a 5 minute walk from security to the gate. " +
-        "Looks like you've got plenty of time!"
+            "Beacons at range"
+            
         UIApplication.sharedApplication().presentLocalNotificationNow(notification)
     }
     

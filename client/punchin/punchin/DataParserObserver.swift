@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+
+protocol DataParserObserver {
+    func dataParsed (roomTitle: String, roomNumber: String)
+    
+}
+

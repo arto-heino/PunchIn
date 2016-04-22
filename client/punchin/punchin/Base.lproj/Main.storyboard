@@ -39,7 +39,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No course available!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TT7-nb-Bfu">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No lesson available! " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TT7-nb-Bfu">
                                 <rect key="frame" x="158" y="320" width="285" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="vRj-tc-ZvF"/>
@@ -61,7 +61,7 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XoG-RU-ne1">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="90"/>
-                                <color key="backgroundColor" red="1" green="0.62441607167848856" blue="0.17998696199467557" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.62352941176470589" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PunchIn!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5e4-4R-CPl">
                                 <rect key="frame" x="201" y="98" width="199" height="55"/>
@@ -141,6 +141,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student ID:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpp-Xr-dS0">
+                                <rect key="frame" x="247" y="245" width="106" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="tBz-bW-gra"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTh-ha-KpZ">
                                 <rect key="frame" x="228" y="471" width="144" height="50"/>
                                 <constraints>
@@ -152,15 +161,6 @@
                                     <segue destination="EBZ-I2-P3Y" kind="show" identifier="SignIn" id="MmK-kg-qpE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student ID:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpp-Xr-dS0">
-                                <rect key="frame" x="247" y="245" width="106" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="tBz-bW-gra"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -186,6 +186,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="lastnameTextField" destination="lo2-VO-ohf" id="QIx-4W-hyP"/>
+                        <outlet property="saveLoginButton" destination="FTh-ha-KpZ" id="CRZ-wR-gZR"/>
+                        <outlet property="studentIdTextField" destination="IgZ-wD-Nbk" id="ED9-Zt-NYg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekN-Et-P9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -203,15 +208,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Part of the course" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edC-Wa-vEd">
-                                <rect key="frame" x="212" y="129" width="176" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="DvF-am-W7x"/>
-                                    <constraint firstAttribute="width" constant="176" id="p3A-yY-ffz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Teacher(s)" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HX8-cR-hbz">
                                 <rect key="frame" x="212" y="206" width="176" height="30"/>
                                 <constraints>
@@ -235,6 +231,15 @@
                                     <segue destination="Yc9-Y2-qpN" kind="show" identifier="AttendanceList" id="QnG-xl-A6O"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Part of the course" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edC-Wa-vEd">
+                                <rect key="frame" x="212" y="129" width="176" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DvF-am-W7x"/>
+                                    <constraint firstAttribute="width" constant="176" id="p3A-yY-ffz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -258,6 +263,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="lessonTextField" destination="edC-Wa-vEd" id="fm7-za-FRT"/>
+                        <outlet property="teachersTextField" destination="HX8-cR-hbz" id="Qfs-pv-RFY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KU2-fS-3da" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

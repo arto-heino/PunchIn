@@ -100,3 +100,4 @@ fastlane/test_output
 client/.DS_Store
 client/punchin/.DS_Store
 client/punchin/punchin/.DS_Store
+punchin/punchin.xcodeproj/project.xcworkspace/xcshareddata/

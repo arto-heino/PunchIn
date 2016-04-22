@@ -4,40 +4,56 @@
 //
 //  Created by Carla Miettinen on 20/04/16.
 //  Copyright © 2016 Arto Heino. All rights reserved.
-//
+//(.GET, "82.196.15.60:8081/info/\(major)")
 
 import Foundation
+import Alamofire
 
 
-class DataParser{
+class DataParser {
+    
+    init(){}
     
     
-    let string = "{\"name\": \"John\", \"age\": 35, \"children\": [\"Jack\", \"Jill\"]}"
-    
-    func JSONParseDictionary(string: String) -> [String: AnyObject]{
+    func getBeaconData(major: NSNumber, parserObserver: DataParserObserver) {
+        
+        var roomTitle: String = ""
+        var roomNumber: String = ""
+        var lessonTitle: String = ""
+    //    var teachers: String = ""
+
+
         
         
-        if let data = string.dataUsingEncoding(NSUTF8StringEncoding){
-            
-            do{
-                if let dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? [String: AnyObject]{
-                    
-                    return dictionary
-                    
-                }
-            }catch {
+        Alamofire.request(.GET, "http://82.196.15.60:8081/info/\(major)")
+            .responseJSON { response in
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
                 
-                print("error")
-            }
-        }
-        return [String: AnyObject]()
+                if let JSON = response.result.value {
+                    let response = JSON as! NSDictionary
+                    
+                    roomTitle = response.objectForKey("room_title") as! String
+                    roomNumber = response.objectForKey("room_number") as! String
+                    let lessonTitle = response.valueForKeyPath("lessons.lesson_title") as! [String]
+                    let teachers = response.valueForKeyPath("lessons.teachers") as! [String]
+                    //room = Room(roomTitle,roomNumber, Lesson(teachers,lessonTitle))
+                        print(lessonTitle)
+                        print(teachers)
+                        
+    
+                    //create a Room object and pass it to the observer
+                    parserObserver.dataParsed(roomTitle, roomNumber: roomNumber)
+                    
+                    print("JSON: \(JSON)")
+                }
+                
+        
     }
     
     
-    let dictionary = JSONParseDictionary(string)
     
-    let name = dictionary["name"] as? String                    // John
-    let age = dictionary["age"] as? Int                         // 35
-    let firstChild = dictionary["children"]?[0] as? String      // Jack
-    let secondChild = dictionary["children"]?[1] as? String     // Jill
+    }
 }

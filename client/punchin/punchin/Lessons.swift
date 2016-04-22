@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+
+
+final class Lessons : ResponseObjectSerializable {
+    
+    let lessonTitle: String
+    let teachers: String
+    
+    required init?(response: NSHTTPURLResponse, representation: AnyObject) {
+        self.lesson_title = representation.valueForKeyPath("lesson_title") as String
+        self.teachers = representation.valueForKeyPath("teachers") as! String
+    }
+}

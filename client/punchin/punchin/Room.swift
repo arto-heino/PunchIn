@@ -7,3 +7,24 @@
 //
 
 import Foundation
+
+
+class Room {
+    var title = String()
+    var number = Int ()
+    var lesson = Lesson()
+    
+    init(title: String, number: Int) {
+        self.title = title
+        self.number = number
+    }
+    func getRoomTitle() -> String {
+        return title
+    }
+    func getRoomNumber() -> Int {
+        return number
+    }
+    
+    
+    
+}
