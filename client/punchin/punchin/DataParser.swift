@@ -14,16 +14,11 @@ class DataParser {
     
     init(){}
     
+   
     
-    func getBeaconData(major: NSNumber, parserObserver: DataParserObserver) {
+    func getBeaconData(major: NSNumber, parserObserver: DataParserObserver) -> Room {
         
-        var roomTitle: String = ""
-        var roomNumber: String = ""
-        var lessonTitle: String = ""
-    //    var teachers: String = ""
-
-
-        
+         let classroom = Room()
         
         Alamofire.request(.GET, "http://82.196.15.60:8081/info/\(major)")
             .responseJSON { response in
@@ -35,25 +30,32 @@ class DataParser {
                 if let JSON = response.result.value {
                     let response = JSON as! NSDictionary
                     
-                    roomTitle = response.objectForKey("room_title") as! String
-                    roomNumber = response.objectForKey("room_number") as! String
-                    let lessonTitle = response.valueForKeyPath("lessons.lesson_title") as! [String]
-                    let teachers = response.valueForKeyPath("lessons.teachers") as! [String]
-                    //room = Room(roomTitle,roomNumber, Lesson(teachers,lessonTitle))
-                        print(lessonTitle)
-                        print(teachers)
-                        
-    
-                    //create a Room object and pass it to the observer
-                    parserObserver.dataParsed(roomTitle, roomNumber: roomNumber)
+                    
+                    
+                    classroom.setRoomTitle(response.objectForKey("room_title") as! String)
+                    classroom.setRoomNumber(response.objectForKey("room_number") as! String)
+
+                    
+                    classroom.lesson.setLessonTitle(response.valueForKeyPath("lessons.lesson_title") as! [String])
+                    classroom.lesson.setTeachers(response.valueForKeyPath("lessons.teachers") as! [String])
+                    classroom.lesson.setCourseId(response.valueForKeyPath("lessons.course_id") as! [Int])
+                    classroom.lesson.setLessonId(response.valueForKeyPath("lessons.id") as! [Int])
+                    classroom.setLessonId(classroom.lesson.getLessonId())
+                    
+
+                    parserObserver.dataParsed(classroom)
                     
                     print("JSON: \(JSON)")
                 }
+                print(classroom.getLessonId())
+                
                 
         
     }
+           return classroom
     
     
     
     }
+    
 }

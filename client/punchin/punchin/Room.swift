@@ -10,21 +10,33 @@ import Foundation
 
 
 class Room {
-    var title = String()
-    var number = Int ()
-    var lesson = Lesson()
     
-    init(title: String, number: Int) {
-        self.title = title
-        self.number = number
-    }
+    
+    var title = String()
+    var number = String()
+    var lesson = Lesson()
+    var lessonId = [Int]()
+
     func getRoomTitle() -> String {
         return title
     }
-    func getRoomNumber() -> Int {
+    func getRoomNumber() -> String {
         return number
     }
+    func getLessonId() -> [Int] {
+        return lessonId
+    }
     
+    func setRoomTitle(room_name: String) {
+        title = room_name
+    }
     
+    func setRoomNumber(room_number: String) {
+        number = room_number
+    }
+    
+    func setLessonId(lesson_id: [Int]) {
+        lessonId = lesson_id
+    }
     
 }

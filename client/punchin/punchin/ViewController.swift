@@ -107,36 +107,7 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
         checkValidStudentId()
         navigationItem.title = textField.text
     } */
-    
-    
-    
-    
-    
-    
-    
-    
-    // Add the property holding the data.
-    // TODO: replace "<major>:<minor>" strings to match your own beacons
-    
-    
-   /* let placesByBeacons = [
-        "1319:50423": [
-            "Reef": 50,
-        ]
-       /* "major:minor": [
-            "Reef":
-         */
-    ]
-    
 
-    func placesNearBeacon(beacon: CLBeacon) -> [String] {
-        let beaconKey = "\(beacon.major):\(beacon.minor)"
-        if let places = self.placesByBeacons[beaconKey] {
-            let sortedPlaces = Array(places).sort(){ $0.1 < $1.1 }.map { $0.0 }
-            return sortedPlaces
-        }
-        return []
-    }*/
     
     
     
@@ -164,9 +135,10 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
         }
     }
     }
-    func dataParsed(roomTitle: String, roomNumber: String) {
-        classroom?.text = "\(roomTitle) + \(roomNumber)"
-        lessonTextField?.text = String("lessonTitle")
+    func dataParsed(parsedData: Room) {
+        print(parsedData.lesson.getLessonTitle())
+        classroom?.text = "\(parsedData.getRoomTitle()) + \(parsedData.getRoomNumber())"
+        lessonTextField?.text = "\(parsedData.lesson.getLessonTitle())"
         teachersTextField?.text = String("teachers")
         
     }
