@@ -66,6 +66,15 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
         self.beaconManager.delegate = self
         // 4. We need to request this authorization for every beacon manager
         self.beaconManager.requestAlwaysAuthorization()
+        
+        var titleView : UIImageView
+        // set the dimensions you want here
+        titleView = UIImageView(frame:CGRectMake(15, 0, 75, 75))
+        // Set how do you want to maintain the aspect
+        titleView.contentMode = .ScaleAspectFill
+        titleView.image = UIImage(named: "Image")
+        
+        self.navigationItem.titleView = titleView
     }
     override func didReceiveMemoryWarning() {
         
@@ -136,10 +145,10 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     }
     }
     func dataParsed(parsedData: Room) {
-        print(parsedData.lesson.getLessonTitle())
         classroom?.text = "\(parsedData.getRoomTitle()) + \(parsedData.getRoomNumber())"
         lessonTextField?.text = "\(parsedData.lesson.getLessonTitle())"
-        teachersTextField?.text = String("teachers")
+        teachersTextField?.text = "\(parsedData.lesson.getTeachers())"
+        courseLabel?.text = "\(parsedData.lesson.getLessonTitle())"
         
     }
     
