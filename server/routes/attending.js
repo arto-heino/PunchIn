@@ -50,3 +50,12 @@ exports.addAttend = function (req, res) {
         }
     )
 };
+
+exports.getAttendants = function (req, res) {
+    Students.findAll({
+        where: {beacon_id: major},
+        include: [{model: Lessons, where: {start_time: {$lte: new Date()}, end_time: {$gte: new Date()}}}]
+    }).then(function (info) {
+        res.json(info);
+    });
+};
