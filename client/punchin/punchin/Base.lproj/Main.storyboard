@@ -271,7 +271,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="PunchIn" id="cXY-mL-Egk">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="K8z-Ni-9MR">
-                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelFromCourseView:" destination="rJU-eM-sgs" id="NkC-Ap-ai5"/>
                             </connections>
