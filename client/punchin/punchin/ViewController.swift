@@ -39,16 +39,15 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     
     @IBOutlet weak var courseLabel: UILabel!
     
-
-    @IBOutlet weak var lastnameTextField: UITextField!
-    
-    @IBOutlet weak var studentIdTextField: UITextField!
-    
-    @IBOutlet weak var saveLoginButton: UIButton!
-    
     @IBOutlet weak var lessonTextField: UITextField!
     
     @IBOutlet weak var teachersTextField: UITextField!
+    
+    
+    @IBAction func materialsAction(sender: AnyObject) {
+        UIApplication.sharedApplication().openURL(NSURL(string: "https://drive.google.com/drive/u/1/folders/0B9Ne_ibI0-RHTzZzTWg1ekdNYUE")!)
+        
+    }
     
     
     
@@ -82,33 +81,7 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
         super.viewDidDisappear(animated)
         self.beaconManager.stopRangingBeaconsInRegion(self.beaconRegion)
     }
-    
-
-/*    func textFieldDidBeginEditing(textField: UITextField) {
-        // Disable the Save button while editing.
-        saveLoginButton.enabled = false
-    }
-    
-    func checkValidLastName() {
-        // Disable the Save button if the text field is empty.
-        let text = lastnameTextField.text ?? ""
-        saveLoginButton.enabled = !text.isEmpty
-    }
-    
-    
-    func checkValidStudentId() {
-        // Disable the Save button if the text field is empty.
-        let text = studentIdTextField.text ?? ""
-        saveLoginButton.enabled = !text.isEmpty
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        checkValidLastName()
-        checkValidStudentId()
-        navigationItem.title = textField.text
-    } */
-
-    
+        
     
     
     

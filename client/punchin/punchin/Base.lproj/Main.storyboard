@@ -106,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="-319" y="-119"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="oxb-XC-FJI">
             <objects>
-                <viewController id="9JK-9V-2z5" customClass="ViewController" customModule="punchin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9JK-9V-2z5" customClass="LoginViewController" customModule="punchin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XJO-QW-2N0"/>
                         <viewControllerLayoutGuide type="bottom" id="gUu-2M-8cf"/>
@@ -182,14 +182,14 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="oYG-oz-2xb">
                             <color key="tintColor" red="0.33724148395836417" green="0.52519970416162143" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="cancel:" destination="9JK-9V-2z5" id="lqL-2b-h46"/>
+                                <action selector="cancel:" destination="9JK-9V-2z5" id="8ed-0u-XDL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="lastnameTextField" destination="lo2-VO-ohf" id="QIx-4W-hyP"/>
-                        <outlet property="saveLoginButton" destination="FTh-ha-KpZ" id="CRZ-wR-gZR"/>
-                        <outlet property="studentIdTextField" destination="IgZ-wD-Nbk" id="ED9-Zt-NYg"/>
+                        <outlet property="lastnameTextField" destination="lo2-VO-ohf" id="aNm-di-gza"/>
+                        <outlet property="saveLoginButton" destination="FTh-ha-KpZ" id="gAv-zL-SaU"/>
+                        <outlet property="studentIdTextField" destination="IgZ-wD-Nbk" id="oDg-Yj-kRJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekN-Et-P9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -223,6 +223,9 @@
                                     <constraint firstAttribute="height" constant="53" id="bgn-Ve-2c3"/>
                                 </constraints>
                                 <state key="normal" title="Materials"/>
+                                <connections>
+                                    <action selector="materialsAction:" destination="rJU-eM-sgs" eventType="touchUpInside" id="mqa-AV-MtS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBS-KE-kyC">
                                 <rect key="frame" x="242" y="429" width="117" height="63"/>

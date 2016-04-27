@@ -13,6 +13,7 @@
 		744359271CC8F43C00BFEE7F /* DataParserObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744359261CC8F43C00BFEE7F /* DataParserObserver.swift */; };
 		7443592B1CCA41B600BFEE7F /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443592A1CCA41B600BFEE7F /* Room.swift */; };
 		7443592D1CCA41CD00BFEE7F /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443592C1CCA41CD00BFEE7F /* Lesson.swift */; };
+		744359321CD0C6BE00BFEE7F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744359311CD0C6BE00BFEE7F /* LoginViewController.swift */; };
 		746C2F171CBE1FE800180E1C /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 746C2F161CBE1FE800180E1C /* EstimoteSDK.framework */; };
 		E72903231CA3DB0F00955738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72903221CA3DB0F00955738 /* AppDelegate.swift */; };
 		E72903251CA3DB0F00955738 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72903241CA3DB0F00955738 /* ViewController.swift */; };
@@ -109,6 +110,7 @@
 		744359261CC8F43C00BFEE7F /* DataParserObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataParserObserver.swift; sourceTree = "<group>"; };
 		7443592A1CCA41B600BFEE7F /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		7443592C1CCA41CD00BFEE7F /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		744359311CD0C6BE00BFEE7F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		746C2F161CBE1FE800180E1C /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EstimoteSDK.framework; sourceTree = "<group>"; };
 		E729031F1CA3DB0F00955738 /* punchin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = punchin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72903221CA3DB0F00955738 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				E72903221CA3DB0F00955738 /* AppDelegate.swift */,
 				E72903241CA3DB0F00955738 /* ViewController.swift */,
+				744359311CD0C6BE00BFEE7F /* LoginViewController.swift */,
 				744359261CC8F43C00BFEE7F /* DataParserObserver.swift */,
 				744358FE1CC7A03000BFEE7F /* DataParser.swift */,
 				7443592A1CCA41B600BFEE7F /* Room.swift */,
@@ -365,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				744359321CD0C6BE00BFEE7F /* LoginViewController.swift in Sources */,
 				E72903251CA3DB0F00955738 /* ViewController.swift in Sources */,
 				E72903231CA3DB0F00955738 /* AppDelegate.swift in Sources */,
 				744359271CC8F43C00BFEE7F /* DataParserObserver.swift in Sources */,
