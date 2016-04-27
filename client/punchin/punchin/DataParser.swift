@@ -47,7 +47,7 @@ class DataParser {
                     
                     print("JSON: \(JSON)")
                 }
-                print(classroom.getLessonId())
+
                 
                 
         

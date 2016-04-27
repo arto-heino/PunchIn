@@ -24,8 +24,8 @@ class Lesson {
     
     
     
-    func getLessonId() -> [Int] {
-        return lessonId
+    func getLessonId() -> Int {
+        return lessonId.first!
     }
     
     func getStartTime() -> String {
@@ -43,36 +43,50 @@ class Lesson {
     func getTeachers() -> String {
         return teachers
     }
-    func getCourseId() -> [Int] {
-        return courseId
+    func getCourseId() -> Int {
+        return courseId.first!
     }
     
      // SETTERS
     
     
-    func setLessonId(id: [Int]) {
-        lessonId = id
+    func setLessonId(less_id: [Int]) {
+        lessonId = less_id
     }
     
-    func setStartTime(s_time: [String]) {
-        startTime = String(s_time)
-    }
-    
-    func setEndTime(e_time: [String])  {
-        endTime = String(e_time)
-    }
-    
-    func setLessonTitle(lessonName: [String]) {
-        lessonTitle = String(lessonName)
-    }
-    
-    func setTeachers(teachers_name: [String]) {
-        teachers = String(teachers_name)
-    }
     func setCourseId(course_id: [Int]) {
         courseId = course_id
     }
     
+    func setStartTime(s_time: [String]) {
+        let stringArray = s_time
+        let characterArray = stringArray.flatMap { String.CharacterView($0) }
+        startTime = String(characterArray)
+    
+    }
+    
+    func setEndTime(e_time: [String])  {
+        let stringArray = e_time
+        let characterArray = stringArray.flatMap { String.CharacterView($0) }
+        let string = String(characterArray)
+        endTime = string
+    }
+    
+    func setLessonTitle(lessonName: [String]) {
+        let stringArray = lessonName
+        let characterArray = stringArray.flatMap { String.CharacterView($0) }
+        let string = String(characterArray)
+        lessonTitle = string
+    }
+    
+    func setTeachers(teachers_name: [String]) {
+        
+        let stringArray = teachers_name
+        let characterArray = stringArray.flatMap { String.CharacterView($0) }
+        let string = String(characterArray)
+        teachers = string
+    }
+
     
     
     

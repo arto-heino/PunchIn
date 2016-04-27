@@ -136,11 +136,21 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     }
     }
     func dataParsed(parsedData: Room) {
-        print(parsedData.lesson.getLessonTitle())
-        classroom?.text = "\(parsedData.getRoomTitle()) + \(parsedData.getRoomNumber())"
+        //let lessonTitle = String(parsedData.lesson.getLessonTitle())
+        classroom?.text = "\(parsedData.getRoomTitle()), \(parsedData.getRoomNumber())"
         lessonTextField?.text = "\(parsedData.lesson.getLessonTitle())"
-        teachersTextField?.text = String("teachers")
+        teachersTextField?.text = "\(parsedData.lesson.getTeachers())"
+        courseLabel?.text = "\(parsedData.lesson.getLessonTitle())"
         
+        
+     /*  print(parsedData.getRoomTitle())
+       print(parsedData.lesson.getTeachers())
+       print(parsedData.lesson.getLessonTitle())
+       print(parsedData.lesson.getCourseId())
+       print(parsedData.lesson.getLessonId())
+        print(parsedData.lesson.getEndTime())
+        print(parsedData.lesson.getStartTime())*/
+    
     }
     
     
