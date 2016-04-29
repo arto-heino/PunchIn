@@ -39,6 +39,7 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     
     @IBOutlet weak var courseLabel: UILabel!
     
+    @IBOutlet weak var navBar: UINavigationBar!
 
     @IBOutlet weak var lastnameTextField: UITextField!
     
@@ -55,6 +56,7 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     // BEACON MANAGER
     
     let beaconManager = ESTBeaconManager()
+    let post = HttpPost()
     let beaconRegion = CLBeaconRegion(
         proximityUUID: NSUUID(UUIDString: "DBB26A86-A7FD-45F7-AEEA-3A1BFAC8D6D9")!,
         identifier: "ranged region")
@@ -62,19 +64,24 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     override func viewDidLoad() {
         print("viewdidload")
         super.viewDidLoad()
+        lastnameTextField?.delegate = self
+        studentIdTextField?.delegate = self
         // 3. Set the beacon manager's delegate
         self.beaconManager.delegate = self
         // 4. We need to request this authorization for every beacon manager
         self.beaconManager.requestAlwaysAuthorization()
         
-        var titleView : UIImageView
-        // set the dimensions you want here
-        titleView = UIImageView(frame:CGRectMake(15, 0, 75, 75))
-        // Set how do you want to maintain the aspect
-        titleView.contentMode = .ScaleAspectFill
-        titleView.image = UIImage(named: "Image")
+        let logoImage = UIImageView(frame: CGRect(x:0, y:0, width: 200, height: 45))
+        logoImage.contentMode = .ScaleAspectFit
         
-        self.navigationItem.titleView = titleView
+        let logo = UIImage(named: "Image")
+        logoImage.image = logo
+        self.navigationItem.titleView = logoImage
+        
+        
+        
+        
+        
     }
     override func didReceiveMemoryWarning() {
         
@@ -93,33 +100,44 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     }
     
 
-/*    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(textField: UITextField) {
         // Disable the Save button while editing.
-        saveLoginButton.enabled = false
+        //saveLoginButton.enabled = false
     }
     
     func checkValidLastName() {
         // Disable the Save button if the text field is empty.
         let text = lastnameTextField.text ?? ""
-        saveLoginButton.enabled = !text.isEmpty
+        //saveLoginButton.enabled = !text.isEmpty
     }
     
     
     func checkValidStudentId() {
         // Disable the Save button if the text field is empty.
         let text = studentIdTextField.text ?? ""
-        saveLoginButton.enabled = !text.isEmpty
+        //saveLoginButton.enabled = !text.isEmpty
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
         checkValidLastName()
         checkValidStudentId()
         navigationItem.title = textField.text
-    } */
+    }
 
     
-    
-    
+    @IBAction func login(sender: UIButton) {
+        let studentId:Int? = Int(studentIdTextField.text!)
+        post.setStudentNumber(studentId!)
+        post.setSurname(lastnameTextField.text!)
+        print("posted")
+        post.httpPost()
+    }
     
     func beaconManager(manager: AnyObject, didRangeBeacons beacons: [CLBeacon],
                        inRegion region: CLBeaconRegion) {
@@ -145,11 +163,14 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     }
     }
     func dataParsed(parsedData: Room) {
+        let crsId = parsedData.lesson.getCourseId()
+        let lsId = parsedData.lesson.getLessonId()
+        post.setCourse(crsId)
+        post.setLesson(lsId)
         classroom?.text = "\(parsedData.getRoomTitle()) + \(parsedData.getRoomNumber())"
         lessonTextField?.text = "\(parsedData.lesson.getLessonTitle())"
         teachersTextField?.text = "\(parsedData.lesson.getTeachers())"
-        courseLabel?.text = "\(parsedData.lesson.getLessonTitle())"
-        
+        courseLabel?.text = "\(parsedData.lesson.getLessonTitle())"        
     }
     
     

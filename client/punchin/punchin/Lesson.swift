@@ -24,8 +24,8 @@ class Lesson {
     
     
     
-    func getLessonId() -> [Int] {
-        return lessonId
+    func getLessonId() -> Int {
+        return lessonId.first!
     }
     
     func getStartTime() -> String {
@@ -43,8 +43,8 @@ class Lesson {
     func getTeachers() -> String {
         return teachers
     }
-    func getCourseId() -> [Int] {
-        return courseId
+    func getCourseId() -> Int {
+        return courseId.first!
     }
     
      // SETTERS

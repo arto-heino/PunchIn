@@ -22,10 +22,10 @@ class DataParser {
         
         Alamofire.request(.GET, "http://82.196.15.60:8081/info/\(major)")
             .responseJSON { response in
-                print(response.request)  // original URL request
+                /*print(response.request)  // original URL request
                 print(response.response) // URL response
                 print(response.data)     // server data
-                print(response.result)   // result of response serialization
+                print(response.result)   // result of response serialization*/
                 
                 if let JSON = response.result.value {
                     let response = JSON as! NSDictionary
@@ -40,14 +40,13 @@ class DataParser {
                     classroom.lesson.setTeachers(response.valueForKeyPath("lessons.teachers") as! [String])
                     classroom.lesson.setCourseId(response.valueForKeyPath("lessons.course_id") as! [Int])
                     classroom.lesson.setLessonId(response.valueForKeyPath("lessons.id") as! [Int])
-                    classroom.setLessonId(classroom.lesson.getLessonId())
+                    classroom.setLessonId(classroom.lesson.getLessonId() )
                     
 
                     parserObserver.dataParsed(classroom)
                     
-                    print("JSON: \(JSON)")
+                    /*print("JSON: \(JSON)")*/
                 }
-                print(classroom.getLessonId())
                 
                 
         

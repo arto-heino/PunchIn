@@ -128,12 +128,12 @@
                                     <constraint firstAttribute="width" constant="170" id="4Kj-df-94Y"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Student ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IgZ-wD-Nbk">
                                 <rect key="frame" x="215" y="321" width="170" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Lastname:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PM-Na-zYA">
                                 <rect key="frame" x="247" y="103" width="106" height="20"/>
@@ -162,6 +162,7 @@
                                 </constraints>
                                 <state key="normal" title="Punch me in!"/>
                                 <connections>
+                                    <action selector="login:" destination="9JK-9V-2z5" eventType="touchUpInside" id="2zp-4o-bv0"/>
                                     <segue destination="EBZ-I2-P3Y" kind="show" identifier="SignIn" id="MmK-kg-qpE"/>
                                 </connections>
                             </button>
@@ -200,9 +201,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="lastnameTextField" destination="lo2-VO-ohf" id="QIx-4W-hyP"/>
+                        <outlet property="lastnameTextField" destination="lo2-VO-ohf" id="Jdq-Sj-Vxe"/>
                         <outlet property="saveLoginButton" destination="FTh-ha-KpZ" id="CRZ-wR-gZR"/>
-                        <outlet property="studentIdTextField" destination="IgZ-wD-Nbk" id="ED9-Zt-NYg"/>
+                        <outlet property="studentIdTextField" destination="IgZ-wD-Nbk" id="M9I-1t-rVU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekN-Et-P9J" userLabel="First Responder" sceneMemberID="firstResponder"/>

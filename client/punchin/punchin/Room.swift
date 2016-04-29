@@ -15,7 +15,7 @@ class Room {
     var title = String()
     var number = String()
     var lesson = Lesson()
-    var lessonId = [Int]()
+    var lessonId = Int()
 
     func getRoomTitle() -> String {
         return title
@@ -23,7 +23,7 @@ class Room {
     func getRoomNumber() -> String {
         return number
     }
-    func getLessonId() -> [Int] {
+    func getLessonId() -> Int {
         return lessonId
     }
     
@@ -35,7 +35,7 @@ class Room {
         number = room_number
     }
     
-    func setLessonId(lesson_id: [Int]) {
+    func setLessonId(lesson_id: Int) {
         lessonId = lesson_id
     }
     
