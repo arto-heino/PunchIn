@@ -16,11 +16,9 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     
     var nearestBeacon: CLBeacon?
     
-    //BUTTONS
     
-    @IBAction func cancel(sender: UIBarButtonItem) {
-            dismissViewControllerAnimated(true, completion: nil)
-    }
+    
+    //BUTTONS
 
     @IBAction func cancelFromCourseView(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -53,6 +51,8 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     
     // BEACON MANAGER
     
+    
+    
     let beaconManager = ESTBeaconManager()
     let beaconRegion = CLBeaconRegion(
         proximityUUID: NSUUID(UUIDString: "DBB26A86-A7FD-45F7-AEEA-3A1BFAC8D6D9")!,
@@ -61,9 +61,8 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     override func viewDidLoad() {
         print("viewdidload")
         super.viewDidLoad()
-        // 3. Set the beacon manager's delegate
+  
         self.beaconManager.delegate = self
-        // 4. We need to request this authorization for every beacon manager
         self.beaconManager.requestAlwaysAuthorization()
     }
     override func didReceiveMemoryWarning() {
@@ -73,7 +72,6 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        print("viewwillappear")
         self.beaconManager.startRangingBeaconsInRegion(self.beaconRegion)
     }
     
@@ -87,7 +85,6 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     
     func beaconManager(manager: AnyObject, didRangeBeacons beacons: [CLBeacon],
                        inRegion region: CLBeaconRegion) {
-        print("beaconmanager")
         
         if beacons.first != nil {
             
@@ -108,21 +105,26 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
         }
     }
     }
+    
+    
+    
+    //setting the parsed data to textfields
+    
     func dataParsed(parsedData: Room) {
-        //let lessonTitle = String(parsedData.lesson.getLessonTitle())
+ 
         classroom?.text = "\(parsedData.getRoomTitle()), \(parsedData.getRoomNumber())"
         lessonTextField?.text = "\(parsedData.lesson.getLessonTitle())"
         teachersTextField?.text = "\(parsedData.lesson.getTeachers())"
         courseLabel?.text = "\(parsedData.lesson.getLessonTitle())"
         
         
-     /*  print(parsedData.getRoomTitle())
+       print(parsedData.getRoomTitle())
        print(parsedData.lesson.getTeachers())
        print(parsedData.lesson.getLessonTitle())
        print(parsedData.lesson.getCourseId())
        print(parsedData.lesson.getLessonId())
         print(parsedData.lesson.getEndTime())
-        print(parsedData.lesson.getStartTime())*/
+        print(parsedData.lesson.getStartTime())
     
     }
     

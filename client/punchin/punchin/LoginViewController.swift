@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    
+    //buttons
 
     @IBAction func cancel(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -18,11 +20,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var lastnameTextField: UITextField!
     
-    
     @IBOutlet weak var studentIdTextField: UITextField!
 
     @IBOutlet weak var saveLoginButton: UIButton!
     
+    
+    
+    //checks in login 
+    
+    var lastname = ""
+    var studentId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +38,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
         enableLoginButton(checkValidLastName() && checkValidLastName())
+        
+        let loginDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if (loginDefaults.valueForKey("lastname") != nil) {
+            lastname = loginDefaults.valueForKey("lastname") as! NSString as String
+            lastnameTextField.text = NSString(format: "lastname : %@", lastname) as String
+        }
+        
+        if (loginDefaults.valueForKey("studentId") != nil) {
+            studentId = loginDefaults.valueForKey("studentId") as! NSString as String
+            studentIdTextField.text = NSString(format: "studentId : %@", studentId) as String
+            
+        }
 
     }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
@@ -70,8 +90,26 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
+    
+    
+    
+    
+    //SAVING THE USER DATA
+    
+    
+    
+    func saveUserData() {
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
+    defaults.setValue(lastnameTextField, forKey: "lastname")
+    defaults.setValue(studentIdTextField.text, forKey: "studentId")
+    defaults.synchronize()
+    
+    }
+    
+    
+       /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
