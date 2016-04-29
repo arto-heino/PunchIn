@@ -16,6 +16,7 @@
 		744359321CD0C6BE00BFEE7F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744359311CD0C6BE00BFEE7F /* LoginViewController.swift */; };
 		7443593C1CD341DB00BFEE7F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443593B1CD341DB00BFEE7F /* User.swift */; };
 		746C2F171CBE1FE800180E1C /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 746C2F161CBE1FE800180E1C /* EstimoteSDK.framework */; };
+		86EB30EA1CD0AC97000E8D8D /* HttpPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EB30E91CD0AC97000E8D8D /* HttpPost.swift */; };
 		E72903231CA3DB0F00955738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72903221CA3DB0F00955738 /* AppDelegate.swift */; };
 		E72903251CA3DB0F00955738 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72903241CA3DB0F00955738 /* ViewController.swift */; };
 		E72903281CA3DB0F00955738 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72903261CA3DB0F00955738 /* Main.storyboard */; };
@@ -114,6 +115,7 @@
 		744359311CD0C6BE00BFEE7F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7443593B1CD341DB00BFEE7F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		746C2F161CBE1FE800180E1C /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EstimoteSDK.framework; sourceTree = "<group>"; };
+		86EB30E91CD0AC97000E8D8D /* HttpPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpPost.swift; sourceTree = "<group>"; };
 		E729031F1CA3DB0F00955738 /* punchin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = punchin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72903221CA3DB0F00955738 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E72903241CA3DB0F00955738 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				E72903221CA3DB0F00955738 /* AppDelegate.swift */,
+				86EB30E91CD0AC97000E8D8D /* HttpPost.swift */,
 				E72903241CA3DB0F00955738 /* ViewController.swift */,
 				744359311CD0C6BE00BFEE7F /* LoginViewController.swift */,
 				744359261CC8F43C00BFEE7F /* DataParserObserver.swift */,
@@ -261,7 +264,7 @@
 				TargetAttributes = {
 					E729031E1CA3DB0F00955738 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = B8D9N5HJ58;
+						DevelopmentTeam = 5D28U3497A;
 					};
 					E72903321CA3DB0F00955738 = {
 						CreatedOnToolsVersion = 7.3;
@@ -379,6 +382,7 @@
 				7443593C1CD341DB00BFEE7F /* User.swift in Sources */,
 				744358FF1CC7A03000BFEE7F /* DataParser.swift in Sources */,
 				7443592B1CCA41B600BFEE7F /* Room.swift in Sources */,
+				86EB30EA1CD0AC97000E8D8D /* HttpPost.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,7 +527,7 @@
 				);
 				INFOPLIST_FILE = punchin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = metropolia.fi.punchin;
+				PRODUCT_BUNDLE_IDENTIFIER = fi.metropolia.punchin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";
@@ -543,7 +547,7 @@
 				);
 				INFOPLIST_FILE = punchin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = metropolia.fi.punchin;
+				PRODUCT_BUNDLE_IDENTIFIER = fi.metropolia.punchin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";
