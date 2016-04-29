@@ -1,0 +1,6 @@
+[submodule "Alamofire"]
+	path = Alamofire
+	url = https://github.com/Alamofire/Alamofire.git
+[submodule "client/punchin/Alamofire"]
+	path = client/punchin/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git
