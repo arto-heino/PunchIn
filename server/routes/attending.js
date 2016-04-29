@@ -14,6 +14,8 @@ var lessons_id;
 var s_name;
 var student_number;
 
+// Add new attending with course, lesson and student.
+
 exports.addAttend = function (req, res) {
     course_id = req.body.course_id;
     lessons_id = req.body.lessons_id;
@@ -23,7 +25,7 @@ exports.addAttend = function (req, res) {
     Students.findOne({where: {s_name: s_name, student_number: student_number}}).then(
         function (student) {
             if (!student) {
-                res.status(500).send('Wrong name or student number!');
+                res.status(401).send('Wrong name or student number!');
             }
             student_id = student.id;
 
@@ -33,12 +35,12 @@ exports.addAttend = function (req, res) {
             }).then(
                 function (course) {
                     if (!course) {
-                        res.status(500).send('Student is not on this course');
+                        res.status(402).send('Student is not on this course');
                     }
                     Attendants.create({student_id: student_id, lessons_id: lessons_id}).then(
                         function (attend) {
                             if (!attend) {
-                                res.status(500).send('You are already at this lesson.');
+                                res.status(403).send('You are already at this lesson.');
                             }
                             res.status(200).send('New attendant added.');
                         }
@@ -51,10 +53,13 @@ exports.addAttend = function (req, res) {
     )
 };
 
+// Get all attendants with lesson id.
+
 exports.getAttendants = function (req, res) {
-    Students.findAll({
-        where: {beacon_id: major},
-        include: [{model: Lessons, where: {start_time: {$lte: new Date()}, end_time: {$gte: new Date()}}}]
+    var lesson_id = req.params.id;
+    Attendants.findAll({
+        where: {lessons_id: lesson_id},
+        include: [{model: Students}]
     }).then(function (info) {
         res.json(info);
     });

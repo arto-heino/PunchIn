@@ -5,6 +5,8 @@ var models = require('.././models');
 var Info = models.Info;
 var Lessons = models.Lessons;
 
+// Get current room and lesson with beacon id and date
+
 exports.getRoom = function (req, res) {
     var major = req.params.id;
     res.setHeader('Content-Type', 'application/json');
