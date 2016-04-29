@@ -32,6 +32,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         post.httpPost()
         saveUserData()
         
+        /*let message = post.message
+        print(message)
+        let alertController = UIAlertController(title: "iOScreator", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)*/
+        
+
     }
     
     
@@ -53,8 +61,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         lastnameTextField.delegate = self
         studentIdTextField.delegate = self
         
+        let logoImage = UIImageView(frame: CGRect(x:0, y:0, width: 200, height: 45))
+        logoImage.contentMode = .ScaleAspectFit
         
-        enableLoginButton(checkValidLastName() && checkValidLastName())
+        let logo = UIImage(named: "Image")
+        logoImage.image = logo
+        self.navigationItem.titleView = logoImage
         
         let loginDefaults = NSUserDefaults.standardUserDefaults()
         
@@ -66,9 +78,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if (loginDefaults.valueForKey("studentId") != nil) {
             studentId = loginDefaults.valueForKey("studentId") as! NSString as String
             studentIdTextField.text = NSString(format: studentId) as String
-            enableLoginButton(true)
-            
         }
+        
+        enableLoginButton(checkValidLastName() && checkValidStudentId())
 
     }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){

@@ -49,6 +49,10 @@ class HttpPost {
         }
     }
     
+    func setMessage(statusMessage: String) {
+        self.message = statusMessage
+    }
+    
     
     func httpPost () {
         
