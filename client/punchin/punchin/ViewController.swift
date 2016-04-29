@@ -16,6 +16,10 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     
     var nearestBeacon: CLBeacon?
     
+    var crsId: Int = 0
+    
+    var lsId: Int = 0
+    
     
     
     //BUTTONS
@@ -62,10 +66,12 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     
     
     let beaconManager = ESTBeaconManager()
-    let post = HttpPost()
     let beaconRegion = CLBeaconRegion(
         proximityUUID: NSUUID(UUIDString: "DBB26A86-A7FD-45F7-AEEA-3A1BFAC8D6D9")!,
         identifier: "ranged region")
+    
+    
+    
     
     override func viewDidLoad() {
         print("viewdidload")
@@ -73,7 +79,7 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
 
         lastnameTextField?.delegate = self
         studentIdTextField?.delegate = self
-        // 3. Set the beacon manager's delegate
+
 
         self.beaconManager.delegate = self
         self.beaconManager.requestAlwaysAuthorization()
@@ -86,10 +92,8 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
         self.navigationItem.titleView = logoImage
         
         
-        
-        
-        
-    }
+        }
+    
     override func didReceiveMemoryWarning() {
         
     }
@@ -106,44 +110,8 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     }
     
 
-    func textFieldDidBeginEditing(textField: UITextField) {
-        // Disable the Save button while editing.
-        //saveLoginButton.enabled = false
-    }
     
-    func checkValidLastName() {
-        // Disable the Save button if the text field is empty.
-        let text = lastnameTextField.text ?? ""
-        //saveLoginButton.enabled = !text.isEmpty
-    }
-    
-    
-    func checkValidStudentId() {
-        // Disable the Save button if the text field is empty.
-        let text = studentIdTextField.text ?? ""
-        //saveLoginButton.enabled = !text.isEmpty
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        // Hide the keyboard.
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        checkValidLastName()
-        checkValidStudentId()
-        navigationItem.title = textField.text
-    }
 
-    
-    @IBAction func login(sender: UIButton) {
-        let studentId:Int? = Int(studentIdTextField.text!)
-        post.setStudentNumber(studentId!)
-        post.setSurname(lastnameTextField.text!)
-        print("posted")
-        post.httpPost()
-    }
     
     func beaconManager(manager: AnyObject, didRangeBeacons beacons: [CLBeacon],
                        inRegion region: CLBeaconRegion) {
@@ -173,14 +141,26 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     //setting the parsed data to textfields
     
     func dataParsed(parsedData: Room) {
-        let crsId = parsedData.lesson.getCourseId()
-        let lsId = parsedData.lesson.getLessonId()
-        post.setCourse(crsId)
-        post.setLesson(lsId)
-        classroom?.text = "\(parsedData.getRoomTitle()) + \(parsedData.getRoomNumber())"
+
+        classroom?.text = "\(parsedData.getRoomTitle()), \(parsedData.getRoomNumber())"
         lessonTextField?.text = "\(parsedData.lesson.getLessonTitle())"
         teachersTextField?.text = "\(parsedData.lesson.getTeachers())"
         courseLabel?.text = "\(parsedData.lesson.getLessonTitle())"
+        
+        crsId = parsedData.lesson.getCourseId()
+        lsId = parsedData.lesson.getLessonId()
+        
+
+    }
+    
+    func saveIdFromRoom() {
+        
+        let savedIds = NSUserDefaults.standardUserDefaults()
+        
+        savedIds.setInteger(crsId, forKey: "courseid")
+        savedIds.setInteger(lsId, forKey: "lessonid")
+        savedIds.synchronize()
+        
     }
     
     

@@ -11,10 +11,27 @@ import UIKit
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
+    
+    let post = HttpPost()
+    var courseId: Int = 0
+    var lessonsId: Int = 0
+    
+    
     //buttons
 
     @IBAction func cancel(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    @IBAction func login(sender: UIButton) {
+        let studentId:Int? = Int(studentIdTextField.text!)
+        post.setStudentNumber(studentId!)
+        post.setSurname(lastnameTextField.text!)
+        print("posted")
+        post.httpPost()
+        saveUserData()
+        
     }
     
     
@@ -43,12 +60,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if (loginDefaults.valueForKey("lastname") != nil) {
             lastname = loginDefaults.valueForKey("lastname") as! NSString as String
-            lastnameTextField.text = NSString(format: "lastname : %@", lastname) as String
+            lastnameTextField.text = NSString(format: lastname) as String
         }
         
         if (loginDefaults.valueForKey("studentId") != nil) {
             studentId = loginDefaults.valueForKey("studentId") as! NSString as String
-            studentIdTextField.text = NSString(format: "studentId : %@", studentId) as String
+            studentIdTextField.text = NSString(format: studentId) as String
+            enableLoginButton(true)
             
         }
 
@@ -59,19 +77,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-     // Disable the Save button while editing.
      saveLoginButton.enabled = false
-     }
-     
+    }
+    
      func checkValidLastName() -> Bool {
-     // Disable the Save button if the text field is empty.
      let text = lastnameTextField.text ?? ""
         return !text.isEmpty
      }
     
      
      func checkValidStudentId() -> Bool {
-     // Disable the Save button if the text field is empty.
      let text = studentIdTextField.text ?? ""
         return !text.isEmpty
      }
@@ -87,9 +102,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    func setCourse(crsId: Int) {
+        courseId = crsId
+        print("course id:", courseId)
+    }
+    
+    func setLesson(lsId: Int) {
+        lessonsId = lsId
+        print("lesson id:", lessonsId)
+    }
     
     
     
@@ -102,21 +125,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
-    defaults.setValue(lastnameTextField, forKey: "lastname")
-    defaults.setValue(studentIdTextField.text, forKey: "studentId")
+    defaults.setObject(lastnameTextField.text, forKey: "lastname")
+    defaults.setObject(studentIdTextField.text, forKey: "studentId")
     defaults.synchronize()
     
     }
     
-    
-       /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

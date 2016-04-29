@@ -17,7 +17,6 @@ class HttpPost {
     var studentNumber: Int
     var message : String
     
-    
     init () {
         self.courseId = 0
         self.lessonsId = 0
@@ -26,6 +25,7 @@ class HttpPost {
         self.message = ""
     }
     
+    let savedIds = NSUserDefaults.standardUserDefaults()
     
     func setSurname (surname: String) {
         s_name = surname
@@ -35,34 +35,32 @@ class HttpPost {
         studentNumber = stNumber
     }
     
-    func setCourse(crsId: Int) {
-        courseId = crsId
-        print("course id:", courseId)
+    func setCourse() {
+        
+        if (savedIds.valueForKey("courseid") != nil) {
+            courseId = savedIds.valueForKey("courseid") as! NSInteger as Int
+        }
     }
     
-    func setLesson(lsId: Int) {
-        lessonsId = lsId
-        print("lesson id:", lessonsId)
+    func setLesson() {
+        
+        if (savedIds.valueForKey("lessonid") != nil) {
+            lessonsId = savedIds.valueForKey("lessonid") as! NSInteger as Int
+        }
     }
+    
     
     func httpPost () {
+        
+        setCourse()
+        setLesson()
+        
         let parameters = [
             "course_id": courseId,
             "lessons_id": lessonsId,
             "s_name": s_name,
             "student_number": studentNumber
         ]
-        /*Alamofire.request(.POST, "http://82.196.15.60:8081/attend/", parameters: parameters as! [String : AnyObject])
-            .responseJSON{response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
-                print(response.description)
-                //print(response.debugDescription)
-                print(response.response?.statusCode)
-                
-        }*/
         
         Alamofire.request(.POST, "http://82.196.15.60:8081/attend/", parameters: parameters as! [String : AnyObject])
             .responseJSON{response in
