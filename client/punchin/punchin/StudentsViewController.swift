@@ -39,7 +39,7 @@ class StudentsViewController: UIViewController, UITableViewDelegate, UITableView
         let dataParser = DataParser()
         
         dataParser.getAttendList(lessonId, parserObserver: self)
-        tableView.backgroundColor = UIColor.clearColor()
+        tableView.backgroundColor = UIColor.whiteColor()
         
     }
     
