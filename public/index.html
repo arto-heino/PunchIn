@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="itasema">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="/javascript/app.js"></script>
+    <script src="/javascript/controllers/mainController.js"></script>
+    <script src="/javascript/controllers/catalogController.js"></script>
+    <script src="/javascript/services/ajaxFactory.js"></script>
+</head>
+<body ng-controller="mainController">
+{{test}}
+<br>
+<button ng-click="loadProducts()">Load products</button>
+<br>
+<div ng-repeat="product in products">
+    <div class="caption kuvatitle">
+        <a ng-href="/product/{{product._id}}">
+        {{ product.p_name }}
+            </a>
+    </div>
+    </div>
+</body>
+</html>

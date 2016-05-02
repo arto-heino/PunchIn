@@ -2,9 +2,10 @@
  * Created by Artsi on 20/04/16.
  */
 var Sequelize = require('sequelize');
+var config = require('.././config');
 
 // initialize database connection
-var sequelize = new Sequelize('mysql://punchin:siika112@82.196.15.60/punchin');
+var sequelize = new Sequelize('mysql://'+config.server.username+':'+config.server.password+'@'+config.server.addr+'/'+config.server.db+'');
 
 // load models
 var models = [
@@ -32,8 +33,9 @@ models.forEach(function (model) {
     m.Lessons.belongsTo(m.Courses, {foreignKey: 'course_id'});
     m.Courses.hasMany(m.Lessons, {foreignKey: 'course_id'});
 
-    m.Attendants.hasMany(m.Lessons, {foreignKey: 'lessons_id'});
-    m.Attendants.hasMany(m.Students, {foreignKey: 'student_id'});
+    m.Attendants.hasMany(m.Lessons, {foreignKey: 'id'});
+    m.Attendants.hasMany(m.Students, {foreignKey: 'id'});
+
 })(module.exports);
 
 // export connection
