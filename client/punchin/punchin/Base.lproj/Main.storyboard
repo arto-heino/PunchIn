@@ -299,10 +299,10 @@
             </objects>
             <point key="canvasLocation" x="2901" y="-141"/>
         </scene>
-        <!--View Controller-->
+        <!--Students View Controller-->
         <scene sceneID="y0i-ju-59f">
             <objects>
-                <viewController id="Yc9-Y2-qpN" sceneMemberID="viewController">
+                <viewController id="Yc9-Y2-qpN" customClass="StudentsViewController" customModule="punchin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pbD-W0-x7C"/>
                         <viewControllerLayoutGuide type="bottom" id="LB7-CH-TUY"/>
@@ -338,6 +338,9 @@
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="MxK-cB-QGv" id="pmK-IH-NK5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uHp-nW-RKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

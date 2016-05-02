@@ -150,7 +150,13 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
         crsId = parsedData.lesson.getCourseId()
         lsId = parsedData.lesson.getLessonId()
         
+        saveIdFromRoom()
+        
 
+    }
+    
+    func studentParsed(students: [Student]) {
+        
     }
     
     func saveIdFromRoom() {
@@ -161,6 +167,15 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
         savedIds.setInteger(lsId, forKey: "lessonid")
         savedIds.synchronize()
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "segueTest") {
+            let svc = segue.destinationViewController as! StudentsViewController;
+            
+            svc.lessonIdToPass = lsId
+            
+        }
     }
     
     

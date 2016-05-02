@@ -12,5 +12,7 @@ import Foundation
 protocol DataParserObserver {
     func dataParsed (classroom: Room)
     
+    func studentParsed (students: [Student])
+    
 }
 

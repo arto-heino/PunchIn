@@ -7,3 +7,23 @@
 //
 
 import Foundation
+
+class Students{
+    
+    var users = [String]()
+    
+    init(){}
+    
+    func getUsers() -> [String] {
+        return users
+    }
+    
+    func getUsersCount() -> Int {
+        return users.count
+    }
+    
+    func setUsers(usersList: [String]) {
+        users = usersList
+    }
+    
+}

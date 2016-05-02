@@ -23,6 +23,8 @@
 		E729032A1CA3DB0F00955738 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E72903291CA3DB0F00955738 /* Assets.xcassets */; };
 		E729032D1CA3DB0F00955738 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E729032B1CA3DB0F00955738 /* LaunchScreen.storyboard */; };
 		E72903381CA3DB0F00955738 /* punchinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72903371CA3DB0F00955738 /* punchinTests.swift */; };
+		E732B8B31CD78F5D00C03CA9 /* StudentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E732B8B21CD78F5D00C03CA9 /* StudentsViewController.swift */; };
+		E732B8B51CD7AF6100C03CA9 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = E732B8B41CD7AF6100C03CA9 /* Student.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,7 +108,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		742671441CBE1ACB00527BD5 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
 		744358FE1CC7A03000BFEE7F /* DataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 		744359001CC7A4D600BFEE7F /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		744359261CC8F43C00BFEE7F /* DataParserObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataParserObserver.swift; sourceTree = "<group>"; };
@@ -126,6 +127,8 @@
 		E72903331CA3DB0F00955738 /* punchinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = punchinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72903371CA3DB0F00955738 /* punchinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = punchinTests.swift; sourceTree = "<group>"; };
 		E72903391CA3DB0F00955738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E732B8B21CD78F5D00C03CA9 /* StudentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentsViewController.swift; sourceTree = "<group>"; };
+		E732B8B41CD7AF6100C03CA9 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,8 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				E72903221CA3DB0F00955738 /* AppDelegate.swift */,
-				86EB30E91CD0AC97000E8D8D /* HttpPost.swift */,
 				E72903241CA3DB0F00955738 /* ViewController.swift */,
+				86EB30E91CD0AC97000E8D8D /* HttpPost.swift */,
 				744359311CD0C6BE00BFEE7F /* LoginViewController.swift */,
 				744359261CC8F43C00BFEE7F /* DataParserObserver.swift */,
 				7443593B1CD341DB00BFEE7F /* User.swift */,
@@ -198,7 +201,8 @@
 				E72903291CA3DB0F00955738 /* Assets.xcassets */,
 				E729032B1CA3DB0F00955738 /* LaunchScreen.storyboard */,
 				E729032E1CA3DB0F00955738 /* Info.plist */,
-				742671441CBE1ACB00527BD5 /* ObjCBridge.h */,
+				E732B8B21CD78F5D00C03CA9 /* StudentsViewController.swift */,
+				E732B8B41CD7AF6100C03CA9 /* Student.swift */,
 			);
 			path = punchin;
 			sourceTree = "<group>";
@@ -264,7 +268,7 @@
 				TargetAttributes = {
 					E729031E1CA3DB0F00955738 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 5D28U3497A;
+						DevelopmentTeam = 4CLR29Q9M7;
 					};
 					E72903321CA3DB0F00955738 = {
 						CreatedOnToolsVersion = 7.3;
@@ -374,12 +378,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E732B8B31CD78F5D00C03CA9 /* StudentsViewController.swift in Sources */,
 				744359321CD0C6BE00BFEE7F /* LoginViewController.swift in Sources */,
 				E72903251CA3DB0F00955738 /* ViewController.swift in Sources */,
 				E72903231CA3DB0F00955738 /* AppDelegate.swift in Sources */,
 				744359271CC8F43C00BFEE7F /* DataParserObserver.swift in Sources */,
 				7443592D1CCA41CD00BFEE7F /* Lesson.swift in Sources */,
 				7443593C1CD341DB00BFEE7F /* User.swift in Sources */,
+				E732B8B51CD7AF6100C03CA9 /* Student.swift in Sources */,
 				744358FF1CC7A03000BFEE7F /* DataParser.swift in Sources */,
 				7443592B1CCA41B600BFEE7F /* Room.swift in Sources */,
 				86EB30EA1CD0AC97000E8D8D /* HttpPost.swift in Sources */,
@@ -527,7 +533,7 @@
 				);
 				INFOPLIST_FILE = punchin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = metropolia.fi.punchin;
+				PRODUCT_BUNDLE_IDENTIFIER = metropolia.fi.fi.punchin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";
@@ -547,7 +553,7 @@
 				);
 				INFOPLIST_FILE = punchin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = metropolia.fi.punchin;
+				PRODUCT_BUNDLE_IDENTIFIER = metropolia.fi.fi.punchin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";

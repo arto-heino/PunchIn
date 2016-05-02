@@ -12,7 +12,8 @@ import Alamofire
 
 class DataParser {
     
-    init(){}
+    init(){
+    }
     
    
     
@@ -22,10 +23,6 @@ class DataParser {
         
         Alamofire.request(.GET, "http://82.196.15.60:8081/info/\(major)")
             .responseJSON { response in
-                /*print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization*/
                 
                 if let JSON = response.result.value {
                     let response = JSON as! NSDictionary
@@ -44,8 +41,6 @@ class DataParser {
                     
 
                     parserObserver.dataParsed(classroom)
-                    
-                    /*print("JSON: \(JSON)")*/
                 }
         
     }
@@ -53,6 +48,31 @@ class DataParser {
     
     
     
+    }
+    
+    func getAttendList(lessonId: Int, parserObserver: DataParserObserver) {
+
+        Alamofire.request(.GET, "http://82.196.15.60:8081/attends/\(lessonId)")
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    var students: [Student] = [Student]()
+                    
+                    let response = JSON as! NSArray
+                    for index in 0..<response.count{
+                        print(response[index].valueForKeyPath("students.f_name") as! [String])
+
+                        let firstName = response[index].valueForKeyPath("students.f_name") as! [String]
+                        let surname = response[index].valueForKeyPath("students.s_name") as! [String]
+                        let student = Student(firstName: firstName.first!, surname: surname.first!)
+                        
+                        students.append(student)
+                        
+                    }
+                    parserObserver.studentParsed(students)
+                }
+        }
+
     }
     
 }
