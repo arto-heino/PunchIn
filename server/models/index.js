@@ -23,8 +23,8 @@ models.forEach(function (model) {
     m.Lessons.belongsTo(m.Info, {foreignKey: 'class_id'});
     m.Info.hasMany(m.Lessons, {foreignKey: 'class_id'});
 
-    m.Lessons.belongsToMany(m.Students, {through: 'attendants', timestamps: false, foreignKey: 'lessons_id'});
-    m.Students.belongsToMany(m.Lessons, {through: 'attendants', timestamps: false, foreignKey: 'student_id'});
+    m.Lessons.belongsToMany(m.Students, {through: 'attendants', timestamps: false, foreignKey: 'student_id'});
+    m.Students.belongsToMany(m.Lessons, {through: 'attendants', timestamps: false, foreignKey: 'lessons_id'});
 
     m.Courses.belongsToMany(m.Students, {through: 'student_courses', timestamps: false, foreignKey: 'course_id'});
     m.Students.belongsToMany(m.Courses, {through: 'student_courses', timestamps: false, foreignKey: 'student_id'});
