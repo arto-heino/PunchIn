@@ -45,12 +45,12 @@ exports.addAttend = function (req, res) {
                             res.status(200).send('New attendant added.');
                         },
                         function (err) {
-                            res.status(500).send(err);
+                            res.status(403).send(err);
                         }
                     );
                 },
                 function (err) {
-                    res.status(500).send(err);
+                    res.status(402).send(err);
                 }
             );
         }, function (err) {
