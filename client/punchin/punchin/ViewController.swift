@@ -49,9 +49,9 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
     
     @IBOutlet weak var saveLoginButton: UIButton!
 
-    @IBOutlet weak var lessonTextField: UITextField!
+    @IBOutlet weak var lessonTextField: UILabel!
     
-    @IBOutlet weak var teachersTextField: UITextField!
+    @IBOutlet weak var teachersTextField: UILabel!
     
     
     @IBAction func materialsAction(sender: AnyObject) {
@@ -163,8 +163,8 @@ class ViewController: UIViewController, UITextFieldDelegate, ESTBeaconManagerDel
         
         let savedIds = NSUserDefaults.standardUserDefaults()
         
-        savedIds.setInteger(crsId, forKey: "courseid")
-        savedIds.setInteger(lsId, forKey: "lessonid")
+        savedIds.setObject(crsId, forKey: "courseid")
+        savedIds.setObject(lsId, forKey: "lessonid")
         savedIds.synchronize()
         
     }

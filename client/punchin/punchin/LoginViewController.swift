@@ -13,8 +13,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     let post = HttpPost()
+    var message = "default msg"
     var courseId: Int = 0
     var lessonsId: Int = 0
+    var doneWithPost: Bool = false
+    var firstCall: Bool = true
     
     
     //buttons
@@ -26,20 +29,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func login(sender: UIButton) {
         let studentId:Int? = Int(studentIdTextField.text!)
+        self.firstCall = true
         post.setStudentNumber(studentId!)
         post.setSurname(lastnameTextField.text!)
-        print("posted")
+        post.setCourse()
+        post.setLesson()
         post.httpPost()
         saveUserData()
-        
-        /*let message = post.message
-        print(message)
-        let alertController = UIAlertController(title: "iOScreator", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-        
-        self.presentViewController(alertController, animated: true, completion: nil)*/
-        
-
     }
     
     
@@ -81,6 +77,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         enableLoginButton(checkValidLastName() && checkValidStudentId())
+        
+        post.viewController = self
 
     }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
@@ -116,6 +114,32 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+        if identifier == "SignIn" {
+            if (firstCall == true){
+                firstCall = false
+                return false
+            }
+            
+            if (firstCall == false && post.error == true) {
+                message = post.message
+                let alertView = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
+                alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                self.presentViewController(alertView, animated: true, completion: nil)
+                
+                return false
+            }
+                
+            else {
+                performSegueWithIdentifier(identifier, sender: self)
+                return true
+            }
+        }
+        
+        // by default, transition
+        return true
+    }
+    
     func setCourse(crsId: Int) {
         courseId = crsId
         print("course id:", courseId)
@@ -124,6 +148,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func setLesson(lsId: Int) {
         lessonsId = lsId
         print("lesson id:", lessonsId)
+    }
+    
+    func presentAlert() {
+        let alertView = UIAlertController(title: "AlertView title here", message: message, preferredStyle: .Alert)
+        alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+        self.presentViewController(alertView, animated: true, completion: nil)
     }
     
     
