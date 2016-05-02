@@ -39,6 +39,8 @@ class StudentsViewController: UIViewController, UITableViewDelegate, UITableView
         let dataParser = DataParser()
         
         dataParser.getAttendList(lessonId, parserObserver: self)
+        tableView.backgroundColor = UIColor.clearColor()
+        
     }
     
     func studentParsed(students: [Student]) {
@@ -65,6 +67,7 @@ class StudentsViewController: UIViewController, UITableViewDelegate, UITableView
         let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier) as UITableViewCell!
         
         cell.textLabel?.text = self.students[indexPath.row].firstName + " " + self.students[indexPath.row].surname
+        cell.backgroundColor = UIColor.clearColor()
         
         return cell
     }
