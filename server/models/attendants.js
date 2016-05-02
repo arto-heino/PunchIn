@@ -4,7 +4,7 @@
 module.exports = function(sequelize, DataTypes) {
     return sequelize.define('attendants', {
             student_id: DataTypes.INTEGER,
-            lessons_id: DataTypes.INTEGER,
+            lessons_id: DataTypes.INTEGER
         }, {timestamps:false}
     );
 };
