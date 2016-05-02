@@ -2,9 +2,10 @@
  * Created by Artsi on 20/04/16.
  */
 var Sequelize = require('sequelize');
+var config = require('.././config');
 
 // initialize database connection
-var sequelize = new Sequelize('mysql://punchin:siika112@82.196.15.60/punchin');
+var sequelize = new Sequelize('mysql://'+config.server.username+':'+config.server.password+'@'+config.server.addr+'/'+config.server.db+'');
 
 // load models
 var models = [

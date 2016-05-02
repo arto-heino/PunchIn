@@ -1,0 +1,8 @@
+<form ng-controller="catalogController" method="post" action="/catalog/add">
+    <input type="text" name="c_name" placeholder="Catalog name">
+    <input type="text" name="c_desc" placeholder="Catalog desc">
+    <select name="c_parent" id="c_parent" ng-model="data.repeatSelect">
+        <option ng-repeat="option in data.availableOptions" value="{{option._id}}">{{option.c_name}}</option>
+    </select>
+    <input type="submit" value="Submit">
+</form>
