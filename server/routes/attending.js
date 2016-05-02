@@ -43,8 +43,14 @@ exports.addAttend = function (req, res) {
                                 res.status(403).send('You are already at this lesson.');
                             }
                             res.status(200).send('New attendant added.');
+                        },
+                        function (err) {
+                            res.status(500).send(err);
                         }
                     );
+                },
+                function (err) {
+                    res.status(500).send(err);
                 }
             );
         }, function (err) {

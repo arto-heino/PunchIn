@@ -32,9 +32,11 @@ models.forEach(function (model) {
     m.Lessons.belongsTo(m.Courses, {foreignKey: 'course_id'});
     m.Courses.hasMany(m.Lessons, {foreignKey: 'course_id'});
 
-    m.Attendants.hasMany(m.Lessons, {foreignKey: 'lessons_id'});
-    m.Attendants.belongsToMany(m.Students, {through: 'attendants', foreignKey: 'student_id'});
-    m.Students.hasMany(m.Attendants, {foreignKey: 'student_id'});
+    m.Students.belongsToMany(m.Lessons, {through: 'attendants', foreignKey: 'student_id'});
+    m.Lessons.belongsToMany(m.Students, {through: 'attendants', foreignKey: 'lessons_id'});
+
+    m.Attendants.hasMany(m.Lessons, {foreignKey: 'id'});
+    m.Attendants.hasMany(m.Students, {foreignKey: 'id'});
 
 })(module.exports);
 

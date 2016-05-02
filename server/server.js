@@ -7,6 +7,13 @@ var app = express();
 var info = require('./routes/main_info');
 var attend = require('./routes/attending');
 
+app.use(express.static(__dirname + '/../public'));
+app.use('/bower_components', express.static(__dirname + '/../bower_components'));
+
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + "/../" + "index.html");
+});
+
 module.exports = app;
 
 app.use(bodyParser());
